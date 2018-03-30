@@ -13,9 +13,9 @@ Features
 * adds visual obfuscation elements: dots density, through lines, fillSections, random text & background color
 * mode-dependent options: randomUpperLowerCase (default mode), resultMultiplier (math mode)
 
-![Screenshot](https://static.synet.sk/captchaExtendedShot.png)
-![Screenshot](https://static.synet.sk/captchaExtendedShot-sk.png)
-![Screenshot](https://static.synet.sk/captchaExtendedShot-de.png)
+![Screenshot](http://static.synet.sk/captchaExtendedShot.png)
+![Screenshot](http://static.synet.sk/captchaExtendedShot-sk.png)
+![Screenshot](http://static.synet.sk/captchaExtendedShot-de.png)
 
 INSTALLATION
 ============
