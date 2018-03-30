@@ -1,0 +1,27 @@
+{
+	"name": "lubosdz/yii2-captcha-extended",
+	"description": "Extended captcha code generator for Yii2 framework with configurable obfuscation level",
+	"type": "yii2-extension",
+	"license": "BSD-3-Clause",
+	"keywords": ["captcha", "antispam"],
+	"support": {
+		"source": "https://github.com/lubosdz/yii2-captcha-extended",
+		"issues": "https://github.com/lubosdz/yii2-captcha-extended/issues"
+	},
+	"authors": [
+		{
+			"name": "lubosdz",
+			"email": "lubosdz@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"yiisoft/yii2": "~2.0.0"
+	},
+	"minimum-stability": "dev",
+	"autoload": {
+		"psr-4": {"lubosdz\\captchaExtended\\": ""}
+	}
+}
+
+
