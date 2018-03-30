@@ -13,13 +13,17 @@ Features
 * adds visual obfuscation elements: dots density, through lines, fillSections, random text & background color
 * mode-dependent options: randomUpperLowerCase (default mode), resultMultiplier (math mode)
 
+![Screenshot](https://static.synet.sk/captchaExtendedShot.png)
+![Screenshot](https://static.synet.sk/captchaExtendedShot-sk.png)
+![Screenshot](https://static.synet.sk/captchaExtendedShot-de.png)
+
 INSTALLATION
 ============
 
 1) Install via composer:
 
 ```bash
-$ composer require "lubosdz/yii2-captcha-extended" : "~2.0.0"
+$ composer require "lubosdz/yii2-captcha-extended" : "*"
 ```
 
 or you can include the following in your composer.json file:
@@ -27,7 +31,7 @@ or you can include the following in your composer.json file:
 ```json
 {
 	"require": {
-		"lubosdz/yii2-captcha-extended" : "~2.0.0"
+		"lubosdz/yii2-captcha-extended" : "*"
 	}
 }
 ```
