@@ -8,7 +8,7 @@ Version for Yii 1.x is available at [Yii Framework Extensions](https://www.yiifr
 Features
 ========
 
-* supports modes: logical, words, mathverbal, math, default
+* supports modes: default, math, mathverbal, words, logical
 * supports extended characters latin1, latin2 (utf-8) including middle- east- european and cyrillyc characters
 * adds visual obfuscation elements: dots density, through lines, fillSections, random text & background color
 * mode-dependent options: randomUpperLowerCase (default mode), resultMultiplier (math mode)
@@ -23,7 +23,7 @@ INSTALLATION
 1) Install via composer:
 
 ```bash
-$ composer require "lubosdz/yii2-captcha-extended" : "*"
+$ composer require "lubosdz/yii2-captcha-extended" : "~1.0.0"
 ```
 
 or you can include the following in your composer.json file:
@@ -31,7 +31,7 @@ or you can include the following in your composer.json file:
 ```json
 {
 	"require": {
-		"lubosdz/yii2-captcha-extended" : "*"
+		"lubosdz/yii2-captcha-extended" : "~1.0.0"
 	}
 }
 ```
