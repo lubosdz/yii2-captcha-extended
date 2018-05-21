@@ -15,12 +15,11 @@ Features
 * mode-dependent options: randomUpperLowerCase (default mode), resultMultiplier (math mode)
 
 ![Screenshot](http://static.synet.sk/captchaExtendedShot.png)
-![Screenshot](http://static.synet.sk/captchaExtendedShot-sk.png)
+![Screenshot](http://static.synet.sk/captchaExtendedShot-sk.png)<br />
 ![Screenshot](http://static.synet.sk/captchaExtendedShot-de.png)
-![Screenshot](http://static.synet.sk/captchaExtended-logical.gif)
+![Screenshot](http://static.synet.sk/captchaExtended-logical.gif)<br />
+![Screenshot](http://static.synet.sk/captchaExtended-mathverbal.gif)<br />
 ![Screenshot](http://static.synet.sk/captchaExtended-math.gif)
-![Screenshot](http://static.synet.sk/captchaExtended-mathverbal.gif)
-
 
 INSTALLATION
 ============
