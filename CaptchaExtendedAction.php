@@ -96,7 +96,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 		}
 
 		// ensure minimum image size with proper width / height ratio
-		$this->height = max(30, $this->height);
+		$this->height = max(30, intval($this->height));
 
 		switch ($this->mode){
 			case self::MODE_WORDS:
@@ -110,7 +110,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 				$minWidth = 150;
 		}
 
-		$this->width = max($minWidth, $this->width);
+		$this->width = max($minWidth, intval($this->width));
 		$this->mode = strtolower($this->mode);
 
 		parent::init();
@@ -306,6 +306,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 			$this->fileWords = __DIR__.'/words.'.Yii::$app->language.'.txt';
 			if(!is_file($this->fileWords)){
 				// load fallback file - without language specification
+				YII_DEBUG ? Yii::warning('Failed loading localized file from ['.$this->fileWords.'].', 'captcha.extended') : '';
 				$this->fileWords = __DIR__.'/words.txt';
 			}
 		}
@@ -561,7 +562,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 		$w = $box[4] - $box[0] + $this->offset * ($length - 1);
 		$h = $box[1] - $box[5];
 		$scale = min(($this->width - $this->padding * 2) / ($w ? $w : 1), ($this->height - $this->padding * 2) / ($h ? $h : 1));
-		$x = 10;
+		$x = max(10, intval(($this->width - $w - $this->padding * 2) / 2.5)); // center formula
 		$y = round($this->height * mt_rand(70, 90) / 100);
 
 		$r = (int)($this->foreColor % 0x1000000 / 0x10000);
@@ -671,7 +672,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 		$w = (int) $fontMetrics['textWidth'] - 8 + $this->offset * ($length - 1);
 		$h = (int) $fontMetrics['textHeight'] - 8;
 		$scale = min(($this->width - $this->padding * 2) / $w, ($this->height - $this->padding * 2) / $h);
-		$x = 10;
+		$x = max(10, intval(($this->width - $w - $this->padding * 2) / 2.5)); // center formula
 		$y = round($this->height * mt_rand(70, 90) / 100);
 		for ($i = 0; $i < $length; ++$i) {
 			// randomize font color

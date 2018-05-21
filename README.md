@@ -36,18 +36,6 @@ or you can include the following in your composer.json file:
 }
 ```
 
-Alternatively, you may also download as ZIP archive and copy files into any directory inside your application e.g. `/app/lib/`.
-Then register namespace and paths in a `classMap` in `/config/main.php`:
-
-```php
-
-Yii::$classMap += [
-	'lubosdz\captchaExtended\CaptchaExtendedAction' => '@app/lib/yii2-captcha-extended/CaptchaExtendedAction.php',
-	'lubosdz\captchaExtended\CaptchaExtendedValidator' => '@app/lib/yii2-captcha-extended/CaptchaExtendedValidator.php',
-];
-
-```
-
 2) Define action in controller, e.g. `SiteController`:
 
 ```php
@@ -57,44 +45,76 @@ public function actions()
 	return [
 		'captcha' => [
 			'class' => 'lubosdz\captchaExtended\CaptchaExtendedAction',
-			// optionally, set mode and obfuscation properties:
+			// optionally, set mode and obfuscation properties e.g.:
 			'mode' => 'math',
-			'resultMultiplier' => 5,
-			'lines' => 5,
-			'height' => 50,
-			'width' => 150,
+			//'resultMultiplier' => 5,
+			//'lines' => 5,
+			//'height' => 50,
+			//'width' => 150,
 		],
 	];
 }
 
 ```
 
-3) Define client validation in `Model::rules()`:
+3) Define client validation in `LoginForm::rules()`:
 
 ```php
+
+public $verifyCode;
 
 public function rules()
 {
 	return [
 		['verifyCode', 'lubosdz\captchaExtended\CaptchaExtendedValidator',
 			'captchaAction' => Url::to('/site/captcha'),
-			'message' => 'Try again ...',
-			'caseSensitive' => false
 		],
 	];
 }
 
 ```
 
+4) In view defined captcha field inside login form e.g.:
+
+```php
+
+<?php $form = ActiveForm::begin() ?>
+
+// ...
+
+<?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+	'captchaAction' => Url::to('/site/captcha'),
+	'template' => '<div class="text-center">{image}</div><br/> {input} ',
+	'imageOptions' => [
+		'style' => 'cursor:pointer;',
+		'title' => Yii::t('app', 'Click to refresh the code'),
+	],
+	'options' => [
+		'placeholder' => Yii::t('app', 'Verification code'),
+		'class' => 'form-control',
+	],
+])->label(false) ?>
+
+// ...
+
+<?php ActiveForm::end(); ?>
+
+```
+
 4) If needed, collect localized strings via CLI command `yiic message messages/config.php` and translate captcha related strings.
 
-5) If needed, you can tune captcha modes and visibility options:
+5) Since by default capchta configures to default framework's settings, you may want to adjust some options:
 
-	* In "words" mode, you can place your own file [words.txt] or [words.yourlanguage.txt]
-	* If needed, you can ..
-		* set the dots density [0-100],
-		* the number of through lines [0-]
-		* the number of fillSections [0-],
-		* font and background colors
+	* `mode` - default|math|mathverbal|logical|words,
+		* for the `words` mode, you can replace your own file [words.txt] or [words.yourlanguage.txt]
+	* `density` - dots density [0-100],
+	* `lines` - the number of through lines [0-20],
+	* `fillSections` - the number of fillSections [0-20],
+	* `letters` - define your own first characters set (UTF-8 supported)
+	* `vowels` - define your own second characters set (UTF-8 supported)
+	* `resultMultiplier` - applied to math mode to increase formula difficulty
+	* `fileWords` - abs. path to file with your own defined locale words (UTF-8 supported)
+	* `randomUpperLowerCase` - mix up randomly upper & lower characters from characters sets
+	* also note standard properties supported by framework: `width`, `height`, `padding`, `offset`, `foreColor`, `backColor`, `transparent`, `minLength`, `maxLength`, ..
 
-6) Test & enjoy!
+6) Enjoy!
