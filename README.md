@@ -105,9 +105,9 @@ public function rules()
 
 ```
 
-4) If needed, collect localized strings via CLI command `yiic message messages/config.php` and translate captcha related strings.
+5) If needed, collect localized strings via CLI command `yiic message messages/config.php` and translate captcha related strings.
 
-5) Since by default capchta configures to default framework's settings, you may want to adjust some options:
+6) Since by default capchta configures to default framework's settings, you may want to adjust some options:
 
 	* `mode` - default|math|mathverbal|logical|words,
 		* for the `words` mode, you can replace your own file [words.txt] or [words.yourlanguage.txt]
@@ -121,4 +121,4 @@ public function rules()
 	* `randomUpperLowerCase` - mix up randomly upper & lower characters from characters sets
 	* also note standard properties supported by framework: `width`, `height`, `padding`, `offset`, `foreColor`, `backColor`, `transparent`, `minLength`, `maxLength`, ..
 
-6) Enjoy!
+7) Enjoy! :-)
