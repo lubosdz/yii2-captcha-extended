@@ -5,6 +5,7 @@ Yii2 Captcha Extended
 It enhances original captcha code delivered along with the framework - see [DEMO](http://yii-demo.synet.sk/site/captchaExtended).
 Version for Yii 1.x is available at [Yii Framework Extensions](https://www.yiiframework.com/extension/captcha-extended).
 
+
 Features
 ========
 
@@ -16,6 +17,10 @@ Features
 ![Screenshot](http://static.synet.sk/captchaExtendedShot.png)
 ![Screenshot](http://static.synet.sk/captchaExtendedShot-sk.png)
 ![Screenshot](http://static.synet.sk/captchaExtendedShot-de.png)
+![Screenshot](http://static.synet.sk/captchaExtended-logical.gif)
+![Screenshot](http://static.synet.sk/captchaExtended-math.gif)
+![Screenshot](http://static.synet.sk/captchaExtended-mathverbal.gif)
+
 
 INSTALLATION
 ============
