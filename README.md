@@ -2,7 +2,7 @@ Yii2 Captcha Extended
 =====================
 
 [Yii2 Captcha Extended](https://github.com/lubosdz/yii2-captcha-extended) is an extension written for Yii2 framework.
-It enhances original captcha code delivered along with the framework - see [DEMO](http://yii-demo.synet.sk/site/captchaExtended).
+It enhances original captcha code delivered along with the framework - see [DEMO](https://synet.sk/blog/php/260-yii-framework-demos).
 Version for Yii 1.x is available at [Yii Framework Extensions](https://www.yiiframework.com/extension/captcha-extended).
 
 
@@ -51,8 +51,10 @@ public function actions()
 			'class' => 'lubosdz\captchaExtended\CaptchaExtendedAction',
 			// optionally, set mode and obfuscation properties e.g.:
 			'mode' => 'math',
+			//'mode' => CaptchaExtendedAction::MODE_MATH,
 			//'resultMultiplier' => 5,
 			//'lines' => 5,
+			//'density' => 10,
 			//'height' => 50,
 			//'width' => 150,
 		],
@@ -90,7 +92,8 @@ public function rules()
 	'captchaAction' => Url::to('/site/captcha'),
 	'template' => '<div class="text-center">{image}</div><br/> {input} ',
 	'imageOptions' => [
-		'style' => 'cursor:pointer;',
+		'class' => 'img-fluid',
+		'style' => 'cursor:pointer; width: 100%',
 		'title' => Yii::t('app', 'Click to refresh the code'),
 	],
 	'options' => [
@@ -119,6 +122,7 @@ public function rules()
 	* `resultMultiplier` - applied to math mode to increase formula difficulty
 	* `fileWords` - abs. path to file with your own defined locale words (UTF-8 supported)
 	* `randomUpperLowerCase` - mix up randomly upper & lower characters from characters sets
+	* `paramRefreshUrl` - set your own URL refresh param, defaults to `v`
 	* also note standard properties supported by framework: `width`, `height`, `padding`, `offset`, `foreColor`, `backColor`, `transparent`, `minLength`, `maxLength`, ..
 
 7) Enjoy! :-)

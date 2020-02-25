@@ -82,6 +82,14 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 	public $vowels = 'aeou';
 
 	/**
+	* URL parameter to enforce refreshing the newly generated captcha image
+	* Framework uses by default "v" (version) by default
+	* In some use cases we may want to use different param e.g. for better tracking where are robots clicking
+	* @var string e.g. "v" or ID of controller where is action handled e.g. "site" or "cpanelLogin"
+	*/
+	public $paramRefreshUrl = 'v';
+
+	/**
 	* Init - check requirements
 	*/
 	public function init()
@@ -127,7 +135,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 			return [
 				'hash1' => $this->generateValidationHash($result),
 				'hash2' => $this->generateValidationHash(mb_convert_case($result, MB_CASE_LOWER, 'utf-8')),
-				'url' => Url::to([$this->id, 'v' => uniqid()]),
+				'url' => Url::to([$this->id, $this->paramRefreshUrl => uniqid()]),
 			];
 		}else{
 			$this->setHttpHeaders();
