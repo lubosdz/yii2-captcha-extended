@@ -1,6 +1,19 @@
 Changelog - Yii2 Captcha Extended
 =================================
 
+Version 1.0.3 - Jun 07, 2020
+------------------------------
+
+- minor compatability fix for PHP 7.4+
+
+
+Version 1.0.2 - Feb 25, 2020
+------------------------------
+
+- configurable refresh parameter in URL
+- updated docs
+
+
 Version 1.0.1 - May 21, 2018
 ------------------------------
 
