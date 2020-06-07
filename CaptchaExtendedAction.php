@@ -177,13 +177,13 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 	public function getVerifyResult($regenerate = false)
 	{
 		if($this->fixedVerifyCode !== null){
-			return $this->fixedVerifyCode;
+			return (string) $this->fixedVerifyCode;
 		}
 
 		$this->getVerifyCode($regenerate);
 		$name = $this->getSessionKey();
 
-		return Yii::$app->session[$name.'result'];
+		return (string) Yii::$app->session[$name.'result'];
 	}
 
 	/**
