@@ -1,6 +1,12 @@
 Changelog - Yii2 Captcha Extended
 =================================
 
+Version 1.0.4 - Jun 30, 2021
+------------------------------
+
+- updated SK, CS words (dropped accented characters)
+
+
 Version 1.0.3 - Jun 07, 2020
 ------------------------------
 
