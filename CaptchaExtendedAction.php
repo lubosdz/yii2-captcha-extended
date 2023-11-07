@@ -163,7 +163,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 			$codeResult = $this->generateVerifyCode();
 			$session[$name] = $codeResult['code'];
 			$session[$name.'count'] = 1;
-			$session[$name.'result'] = preg_replace('/\s+/', '', $codeResult['result']); // white-space ignorant
+			$session[$name.'result'] = preg_replace('/\s+/u', '', $codeResult['result']); // white-space ignorant
 		}
 
 		return $session[$name];
@@ -191,7 +191,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 	 */
 	public function generateValidationHash($result)
 	{
-		$result = preg_replace('/\s+/', '', $result);
+		$result = preg_replace('/\s+/u', '', $result);
 		$result = urlencode($result); // convert accented characters to ASCII
 
 		for ($h = 0, $i = strlen($result) - 1; $i >= 0; --$i) {
@@ -217,7 +217,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 		$result = $session[$key.'result'];
 
 		// input always without whitespaces
-		$input = preg_replace('/\s+/', '', $input);
+		$input = preg_replace('/\s+/u', '', (string) $input);
 		$valid = $caseSensitive ? strcmp($input, $result) === 0 : strcasecmp($input, $result) === 0;
 
 		// increase attempts counter, but not in case of ajax-client validation (that is always POST request having variable 'ajax')
@@ -324,7 +324,7 @@ class CaptchaExtendedAction extends \yii\captcha\CaptchaAction
 		}
 
 		$words = file_get_contents($this->fileWords);
-		$words = preg_split('/\s+/', $words);
+		$words = preg_split('/\s+/u', $words);
 		$found = [];
 
 		for($i = 0; $i < count($words); ++$i){
